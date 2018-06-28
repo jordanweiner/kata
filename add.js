@@ -1,14 +1,14 @@
 function add(a) {
     var delimeter = ',';
     if (a.includes("//")) {
-        delimeter = a.charAt(2);  // gets delimeter
+        delimeter = getDelimeter(a);  // gets delimeter
     }
 
     a = a.replace(/[\/]|\n/g, delimeter);    // replace all \n with ,
-    var nums = a.split(delimeter);      
+    var nums = a.split(delimeter);          // array of str numbers
     var sum = 0;
-
     var negativeArray = [];     // holds negative numbers
+    
     var i;
     for (i = 0; i < nums.length; i++) {
         if (nums[i] != "") {
@@ -31,4 +31,7 @@ function add(a) {
     return sum;
 }
 
+function getDelimeter(str) {
+    return str.charAt(2);
+}
 module.exports = add;
