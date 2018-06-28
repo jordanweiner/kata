@@ -1,3 +1,5 @@
+/* adds however many numbers in a string, separated by user-sepcified
+     delimeters */
 function add(a) {
     var delimeter = ',';
     if (a.includes("//")) {
@@ -10,6 +12,7 @@ function add(a) {
     var negativeArray = [];     // holds negative numbers
     
     var i;
+    /* Go through all the numbers in the string */
     for (i = 0; i < nums.length; i++) {
         if (nums[i] != "") {
             if (parseInt(nums[i], 10) < 0)
@@ -19,6 +22,7 @@ function add(a) {
         }
     }
 
+    /* Go through all the negatives */
     if (negativeArray.length != 0) {
         var exceptionMessage = "negatives not allowed:";
         for (i = 0; i < negativeArray.length; i++) {
@@ -31,7 +35,9 @@ function add(a) {
     return sum;
 }
 
+/* returns the user-specified delimeter */
 function getDelimeter(str) {
     return str.charAt(2);
 }
+
 module.exports = add;
